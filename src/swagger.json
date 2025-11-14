@@ -1,1 +1,33 @@
-{}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Junction API",
+    "description": "API documentation for the Junction application."
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "schemes": ["http"],
+  "paths": {
+    "/characters": {
+      "get": {
+        "summary": "Get all characters",
+        "responses": {
+          "200": {
+            "description": "A list of characters."
+          }
+        }
+      }
+    },
+    "/story": {
+      "get": {
+        "summary": "Get story details",
+        "responses": {
+          "200": {
+            "description": "Story details."
+          }
+        }
+      }
+    }
+  }
+}
