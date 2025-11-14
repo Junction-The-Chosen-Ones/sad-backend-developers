@@ -5,6 +5,7 @@ import fs from "fs";
 import helmet from "helmet";
 import path from "path";
 import swaggerUi from "swagger-ui-express";
+import routerV1 from "./routes/router";
 
 const app = Express();
 app.use(helmet());
@@ -17,6 +18,7 @@ const swaggerDocument = JSON.parse(
   fs.readFileSync(swaggerDocumentPath, "utf8")
 );
 
+app.use("/api/v1", routerV1);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/", (_req: Request, res: Response) => {
