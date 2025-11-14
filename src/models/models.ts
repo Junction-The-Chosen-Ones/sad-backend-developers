@@ -1,22 +1,29 @@
-export interface characters {
+export interface Character {
   id: number;
   name: string;
   description: string;
   attack: number;
   defense: number;
   health: number;
+  characterType: CharacterType;
 }
-export interface story {
-  nodes: {
-    id: string;
-    parent?: string[] | null | undefined;
-    children?: string[] | null | undefined;
-    content: string;
-  };
-  dialogs: {
-    id: string;
-    characterId: string;
-    content: string;
-  };
+export type CharacterType = "Player" | "Enemy" | "Ally";
+export interface Story {
+  nodes: StoryNode[];
+  dialogs: Dialog[];
   context: string;
+}
+
+export interface StoryNode {
+  id: string;
+  parent?: string[] | null | undefined;
+  children?: string[] | null | undefined;
+  content: string;
+  choices: string[];
+}
+
+export interface Dialog {
+  id: string;
+  characterId: string;
+  content: string;
 }
