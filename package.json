@@ -44,6 +44,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
+    "openai": "^6.9.0",
     "swagger": "^0.7.5",
     "swagger-ui-express": "^5.0.1"
   }

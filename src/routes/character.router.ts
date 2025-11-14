@@ -1,4 +1,5 @@
 import { Request, Response, Router } from "express";
+import { generateText } from "../services/generation.service";
 const router = Router();
 
 router.get("/:id", (req: Request, res: Response) => {
@@ -6,8 +7,16 @@ router.get("/:id", (req: Request, res: Response) => {
   res.json({ message: `Character endpoint for ID: ${characterId}` });
 });
 
-router.get("/", (_req: Request, res: Response) => {
-  res.json({ message: "Character endpoint" });
+router.get("/", async (_req: Request, res: Response) => {
+  try {
+    const data = await generateText(
+      "Say hello from Mistral, and give me your version",
+    );
+    res.json({ message: "Character endpoint", data });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 });
 
 router.all("/{*splat}", (_req: Request, res: Response) => {
