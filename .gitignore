@@ -1,0 +1,18 @@
+# Bun
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+count.txt
+.env
+.nitro
+.wrangler
+# Devenv
+.devenv*
+devenv.local.nix
+devenv.local.yaml
+# direnv
+.direnv
+# pre-commit
+.pre-commit-config.yaml
